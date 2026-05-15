@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://eva.pingutil.com/"
+      }
+      description: "API for email verification. Validate and verify email addresses programmatically."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.eva.pingutil.com"
+        }
+      ]
+      title: "EVA Email Verification"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

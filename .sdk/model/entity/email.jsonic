@@ -1,0 +1,89 @@
+# Entity: email
+
+main: kit: entity: email: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "disposable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "domain"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "free_provider"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "mx_record"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "role_account"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "smtp_check"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "email"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "user@example.com"
+                kind: "query"
+                name: "email"
+                orig: "email"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/email"
+          parts: [
+            "email"
+          ]
+          select: {
+            exist: [
+              "email"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

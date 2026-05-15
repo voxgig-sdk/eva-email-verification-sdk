@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "email": {
+      "EMAIL00": {
+        "disposable": true,
+        "domain": "s51",
+        "email": "s52",
+        "free_provider": false,
+        "mx_record": true,
+        "role_account": false,
+        "smtp_check": true,
+        "status": "s57"
+      },
+      "EMAIL01": {
+        "disposable": true,
+        "domain": "sa1",
+        "email": "sa2",
+        "free_provider": false,
+        "mx_record": true,
+        "role_account": false,
+        "smtp_check": true,
+        "status": "sa7"
+      },
+      "EMAIL02": {
+        "disposable": true,
+        "domain": "sf1",
+        "email": "sf2",
+        "free_provider": false,
+        "mx_record": true,
+        "role_account": false,
+        "smtp_check": true,
+        "status": "sf7"
+      }
+    }
+  },
+  "new": {
+    "email": {
+      "email_ref01": {
+        "disposable": true,
+        "domain": "s141",
+        "email": "s142",
+        "free_provider": false,
+        "mx_record": true,
+        "role_account": false,
+        "smtp_check": true,
+        "status": "s147"
+      }
+    }
+  }
+}

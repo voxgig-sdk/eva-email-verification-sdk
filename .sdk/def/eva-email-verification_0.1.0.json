@@ -1,0 +1,203 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EVA Email Verification",
+    "description": "API for email verification. Validate and verify email addresses programmatically.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://eva.pingutil.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.eva.pingutil.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/email": {
+      "get": {
+        "summary": "Verify Email Address",
+        "description": "Validates and verifies an email address, checking format, domain, and mailbox existence.",
+        "operationId": "verifyEmail",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "The email address to verify",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email",
+              "example": "user@example.com"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful email verification response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "Verification status",
+                      "enum": [
+                        "valid",
+                        "invalid",
+                        "unknown"
+                      ],
+                      "example": "valid"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "The email address that was verified",
+                      "example": "user@example.com"
+                    },
+                    "domain": {
+                      "type": "string",
+                      "description": "The domain part of the email address",
+                      "example": "example.com"
+                    },
+                    "mx_records": {
+                      "type": "boolean",
+                      "description": "Whether MX records exist for the domain",
+                      "example": true
+                    },
+                    "smtp_check": {
+                      "type": "boolean",
+                      "description": "Whether SMTP check was successful",
+                      "example": true
+                    },
+                    "disposable": {
+                      "type": "boolean",
+                      "description": "Whether the email is from a disposable email provider",
+                      "example": false
+                    },
+                    "free_provider": {
+                      "type": "boolean",
+                      "description": "Whether the email is from a free email provider",
+                      "example": false
+                    },
+                    "role_account": {
+                      "type": "boolean",
+                      "description": "Whether the email appears to be a role-based account",
+                      "example": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid email parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid email parameter"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EmailVerificationResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Verification status of the email",
+            "enum": [
+              "valid",
+              "invalid",
+              "unknown"
+            ]
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "The email address that was verified"
+          },
+          "domain": {
+            "type": "string",
+            "description": "The domain part of the email address"
+          },
+          "mx_records": {
+            "type": "boolean",
+            "description": "Whether MX records exist for the domain"
+          },
+          "smtp_check": {
+            "type": "boolean",
+            "description": "Whether SMTP check was successful"
+          },
+          "disposable": {
+            "type": "boolean",
+            "description": "Whether the email is from a disposable email provider"
+          },
+          "free_provider": {
+            "type": "boolean",
+            "description": "Whether the email is from a free email provider"
+          },
+          "role_account": {
+            "type": "boolean",
+            "description": "Whether the email appears to be a role-based account"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}
