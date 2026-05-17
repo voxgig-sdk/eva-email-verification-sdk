@@ -1,10 +1,10 @@
 package voxgigevaemailverificationsdk
 
 import (
-	"github.com/voxgig-sdk/eva-email-verification-sdk/core"
-	"github.com/voxgig-sdk/eva-email-verification-sdk/entity"
-	"github.com/voxgig-sdk/eva-email-verification-sdk/feature"
-	_ "github.com/voxgig-sdk/eva-email-verification-sdk/utility"
+	"github.com/voxgig-sdk/eva-email-verification-sdk/go/core"
+	"github.com/voxgig-sdk/eva-email-verification-sdk/go/entity"
+	"github.com/voxgig-sdk/eva-email-verification-sdk/go/feature"
+	_ "github.com/voxgig-sdk/eva-email-verification-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

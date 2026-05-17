@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/eva-email-verification-sdk"
-	"github.com/voxgig-sdk/eva-email-verification-sdk/core"
+	sdk "github.com/voxgig-sdk/eva-email-verification-sdk/go"
+	"github.com/voxgig-sdk/eva-email-verification-sdk/go/core"
 )
 
 func TestEmailDirect(t *testing.T) {

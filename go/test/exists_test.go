@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/eva-email-verification-sdk"
+	sdk "github.com/voxgig-sdk/eva-email-verification-sdk/go"
 )
 
 func TestExists(t *testing.T) {

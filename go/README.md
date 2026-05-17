@@ -5,14 +5,14 @@ The Golang SDK for the EvaEmailVerification API. Provides an entity-oriented int
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/eva-email-verification-sdk
+go get github.com/voxgig-sdk/eva-email-verification-sdk/go
 ```
 
 If the module is not yet published to a registry, use a `replace` directive
 in your `go.mod` to point to a local checkout:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/eva-email-verification-sdk=../path/to/github.com/voxgig-sdk/eva-email-verification-sdk
+go mod edit -replace github.com/voxgig-sdk/eva-email-verification-sdk/go=../path/to/github.com/voxgig-sdk/eva-email-verification-sdk/go
 ```
 
 
@@ -30,8 +30,8 @@ import (
     "fmt"
     "os"
 
-    sdk "github.com/voxgig-sdk/eva-email-verification-sdk"
-    "github.com/voxgig-sdk/eva-email-verification-sdk/core"
+    sdk "github.com/voxgig-sdk/eva-email-verification-sdk/go"
+    "github.com/voxgig-sdk/eva-email-verification-sdk/go/core"
 )
 
 func main() {
@@ -322,7 +322,7 @@ Use `core.ToMapAny()` to safely cast results and nested data.
 ### Package structure
 
 ```
-github.com/voxgig-sdk/eva-email-verification-sdk/
+github.com/voxgig-sdk/eva-email-verification-sdk/go/
 ├── eva-email-verification.go        # Root package — type aliases and constructors
 ├── core/               # SDK core — client, types, pipeline
 ├── entity/             # Entity implementations
@@ -331,7 +331,7 @@ github.com/voxgig-sdk/eva-email-verification-sdk/
 └── test/               # Test suites
 ```
 
-The root package (`github.com/voxgig-sdk/eva-email-verification-sdk`) re-exports everything needed
+The root package (`github.com/voxgig-sdk/eva-email-verification-sdk/go`) re-exports everything needed
 for normal use. Import sub-packages only when you need specific types
 like `core.ToMapAny`.
 

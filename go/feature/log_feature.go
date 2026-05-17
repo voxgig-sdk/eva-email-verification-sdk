@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/eva-email-verification-sdk/core"
+	"github.com/voxgig-sdk/eva-email-verification-sdk/go/core"
 )
 
 type LogFeature struct {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/eva-email-verification-sdk"
-	"github.com/voxgig-sdk/eva-email-verification-sdk/core"
+	sdk "github.com/voxgig-sdk/eva-email-verification-sdk/go"
+	"github.com/voxgig-sdk/eva-email-verification-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/eva-email-verification-sdk/go/utility/struct"
 )
 
 func TestEmailEntity(t *testing.T) {

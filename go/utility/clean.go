@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/eva-email-verification-sdk/core"
+import "github.com/voxgig-sdk/eva-email-verification-sdk/go/core"
 
 func cleanUtil(ctx *core.Context, val any) any {
 	return val
