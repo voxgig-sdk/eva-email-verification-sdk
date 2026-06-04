@@ -78,14 +78,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'EVAEMAILVERIFICATION_TEST_EMAIL_ENTID': {},
     'EVAEMAILVERIFICATION_TEST_LIVE': 'FALSE',
-    'EVAEMAILVERIFICATION_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.EVAEMAILVERIFICATION_TEST_LIVE
 
   if (live) {
     const client = new EvaEmailVerificationSDK({
-      apikey: env.EVAEMAILVERIFICATION_APIKEY,
     })
 
     let idmap: any = env['EVAEMAILVERIFICATION_TEST_EMAIL_ENTID']

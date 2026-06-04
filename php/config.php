@@ -20,9 +20,6 @@ class EvaEmailVerificationConfig
             ],
             "options" => [
                 "base" => "https://api.eva.pingutil.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

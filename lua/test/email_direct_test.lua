@@ -68,14 +68,12 @@ function email_direct_setup(mockres)
   local env = runner.env_override({
     ["EVAEMAILVERIFICATION_TEST_EMAIL_ENTID"] = {},
     ["EVAEMAILVERIFICATION_TEST_LIVE"] = "FALSE",
-    ["EVAEMAILVERIFICATION_APIKEY"] = "NONE",
   })
 
   local live = env["EVAEMAILVERIFICATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["EVAEMAILVERIFICATION_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

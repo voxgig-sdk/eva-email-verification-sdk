@@ -91,7 +91,6 @@ def _email_basic_setup(extra):
         "EVAEMAILVERIFICATION_TEST_EMAIL_ENTID": idmap,
         "EVAEMAILVERIFICATION_TEST_LIVE": "FALSE",
         "EVAEMAILVERIFICATION_TEST_EXPLAIN": "FALSE",
-        "EVAEMAILVERIFICATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _email_basic_setup(extra):
     if env.get("EVAEMAILVERIFICATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("EVAEMAILVERIFICATION_APIKEY"),
             },
             extra or {},
         ])

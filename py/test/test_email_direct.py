@@ -64,14 +64,12 @@ def _email_direct_setup(mockres):
     env = runner.env_override({
         "EVAEMAILVERIFICATION_TEST_EMAIL_ENTID": {},
         "EVAEMAILVERIFICATION_TEST_LIVE": "FALSE",
-        "EVAEMAILVERIFICATION_APIKEY": "NONE",
     })
 
     live = env.get("EVAEMAILVERIFICATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("EVAEMAILVERIFICATION_APIKEY"),
         }
         client = EvaEmailVerificationSDK(merged_opts)
         return {
