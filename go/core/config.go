@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://api.eva.pingutil.com",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -25,78 +28,80 @@ func MakeConfig() map[string]any {
 			"email": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "disposable",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "domain",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "email",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "free_provider",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "mx_record",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"active": true,
 						"index$": 4,
 					},
 					map[string]any{
+						"active": true,
 						"name": "role_account",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"active": true,
 						"index$": 5,
 					},
 					map[string]any{
+						"active": true,
 						"name": "smtp_check",
 						"req": false,
 						"type": "`$BOOLEAN`",
-						"active": true,
 						"index$": 6,
 					},
 					map[string]any{
+						"active": true,
 						"name": "status",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 7,
 					},
 				},
 				"name": "email",
 				"op": map[string]any{
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "user@example.com",
 											"kind": "query",
 											"name": "email",
 											"orig": "email",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -112,13 +117,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.email`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},

@@ -117,6 +117,7 @@ func emailBasicSetup(extra map[string]any) *entityTestSetup {
 		"EVAEMAILVERIFICATION_TEST_EMAIL_ENTID": idmap,
 		"EVAEMAILVERIFICATION_TEST_LIVE":      "FALSE",
 		"EVAEMAILVERIFICATION_TEST_EXPLAIN":   "FALSE",
+		"EVAEMAILVERIFICATION_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["EVAEMAILVERIFICATION_TEST_EMAIL_ENTID"])
@@ -127,6 +128,7 @@ func emailBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["EVAEMAILVERIFICATION_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["EVAEMAILVERIFICATION_APIKEY"],
 			},
 			extra,
 		})

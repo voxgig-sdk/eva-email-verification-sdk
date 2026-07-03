@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID': idmap,
     'EVA_EMAIL_VERIFICATION_TEST_LIVE': 'FALSE',
     'EVA_EMAIL_VERIFICATION_TEST_EXPLAIN': 'FALSE',
+    'EVA_EMAIL_VERIFICATION_APIKEY': 'NONE',
   })
 
   idmap = env['EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new EvaEmailVerificationSDK(merge([
       {
+        apikey: env.EVA_EMAIL_VERIFICATION_APIKEY,
       },
       extra
     ]))

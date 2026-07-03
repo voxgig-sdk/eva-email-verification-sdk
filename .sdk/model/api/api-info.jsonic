@@ -16,26 +16,7 @@ main: {
       ]
       title: "EVA Email Verification"
       version: "1.0.0"
-      tagline: "Check an email address for valid syntax, disposable domains, and deliverable MX records"
-      homepage: "https://eva.pingutil.com/"
-      docs_url: "https://eva.pingutil.com/"
-      license_short: "Free public API, no licence terms published"
-      license_md: `- No explicit licence published on the EVA homepage.
-- Provided free of charge by [LoginRadius](https://www.loginradius.com/) as a community tool.
-- No documented quotas or attribution requirements; use at your own risk.`
-      about_md: `EVA (Email Verification API) is a free email-validation service published by [LoginRadius](https://www.loginradius.com/) and hosted at \`api.eva.pingutil.com\`. It was released as a developer-community give-back tool and exposes a single GET endpoint that takes an \`email\` query parameter.
-
-What you get from the API:
-- \`email_address\` and \`domain\` parsed from the supplied address
-- \`valid_syntax\` — whether the address matches standard email syntax
-- \`disposable\` — whether the domain is on a list of 4,500+ disposable email providers
-- \`deliverable\` — whether the domain has valid MX records
-
-Responses are wrapped in a \`{ status, data }\` envelope. The service does not require an API key and has no published rate limits. Note that the upstream service has been intermittently unreachable; consult the homepage before relying on it in production.`
-      entity_desc: {
-        email: "An email-verification result for a single address, returned by `GET /email?email=<address>` with syntax, disposable, and deliverability flags."
-      }
-      auth: false
     }
   }
 }
+

@@ -1,20 +1,8 @@
 # EvaEmailVerification SDK
 
-Check an email address for valid syntax, disposable domains, and deliverable MX records
+EVA Email Verification client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About EVA Email Verification
-
-EVA (Email Verification API) is a free email-validation service published by [LoginRadius](https://www.loginradius.com/) and hosted at `api.eva.pingutil.com`. It was released as a developer-community give-back tool and exposes a single GET endpoint that takes an `email` query parameter.
-
-What you get from the API:
-- `email_address` and `domain` parsed from the supplied address
-- `valid_syntax` — whether the address matches standard email syntax
-- `disposable` — whether the domain is on a list of 4,500+ disposable email providers
-- `deliverable` — whether the domain has valid MX records
-
-Responses are wrapped in a `{ status, data }` envelope. The service does not require an API key and has no published rate limits. Note that the upstream service has been intermittently unreachable; consult the homepage before relying on it in production.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install eva-email-verification-sdk
 luarocks install eva-email-verification-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { EvaEmailVerificationSDK } from 'eva-email-verification'
 
-const client = new EvaEmailVerificationSDK({})
+const client = new EvaEmailVerificationSDK({
+  apikey: process.env.EVA-EMAIL-VERIFICATION_APIKEY,
+})
 
+// Load email data
+const email = await client.Email().load({})
+console.log(email.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Email** | An email-verification result for a single address, returned by `GET /email?email=<address>` with syntax, disposable, and deliverability flags. | `/email` |
+| **Email** |  | `/email` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from evaemailverification_sdk import EvaEmailVerificationSDK
 
-client = EvaEmailVerificationSDK({})
+client = EvaEmailVerificationSDK({
+    "apikey": os.environ.get("EVA-EMAIL-VERIFICATION_APIKEY"),
+})
 
 
 # Load a specific email
-email, err = client.Email(None).load(
-    {"id": "example_id"}, None
-)
+email, err = client.Email().load({"id": "example_id"})
+print(email)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ email, err = client.Email(None).load(
 <?php
 require_once 'evaemailverification_sdk.php';
 
-$client = new EvaEmailVerificationSDK([]);
+$client = new EvaEmailVerificationSDK([
+    "apikey" => getenv("EVA-EMAIL-VERIFICATION_APIKEY"),
+]);
 
 
 // Load a specific email
-[$email, $err] = $client->Email(null)->load(
-    ["id" => "example_id"], null
-);
+[$email, $err] = $client->Email()->load(["id" => "example_id"]);
+print_r($email);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new EvaEmailVerificationSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/eva-email-verification-sdk/go"
 
-client := sdk.NewEvaEmailVerificationSDK(map[string]any{})
+client := sdk.NewEvaEmailVerificationSDK(map[string]any{
+    "apikey": os.Getenv("EVA-EMAIL-VERIFICATION_APIKEY"),
+})
 
+// Load email data
+email, err := client.Email(nil).Load(map[string]any{}, nil)
+fmt.Println(email)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewEvaEmailVerificationSDK(map[string]any{})
 ```ruby
 require_relative "EvaEmailVerification_sdk"
 
-client = EvaEmailVerificationSDK.new({})
+client = EvaEmailVerificationSDK.new({
+  "apikey" => ENV["EVA-EMAIL-VERIFICATION_APIKEY"],
+})
 
 
 # Load a specific email
-email, err = client.Email(nil).load(
-  { "id" => "example_id" }, nil
-)
+email, err = client.Email().load({ "id" => "example_id" })
+puts email
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ email, err = client.Email(nil).load(
 ```lua
 local sdk = require("eva-email-verification_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("EVA-EMAIL-VERIFICATION_APIKEY"),
+})
 
 
 -- Load a specific email
-local email, err = client:Email(nil):load(
-  { id = "example_id" }, nil
-)
+local email, err = client:Email():load({ id = "example_id" })
+print(email)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.Email().load({ id: 'test01' })
 ### Python
 
 ```python
-client = EvaEmailVerificationSDK.test(None, None)
-result, err = client.Email(None).load(
-    {"id": "test01"}, None
-)
+client = EvaEmailVerificationSDK.test()
+result, err = client.Email().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = EvaEmailVerificationSDK::test(null, null);
-[$result, $err] = $client->Email(null)->load(
-    ["id" => "test01"], null
-);
+$client = EvaEmailVerificationSDK::test();
+[$result, $err] = $client->Email()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Email(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.Email(nil).Load(
 ### Ruby
 
 ```ruby
-client = EvaEmailVerificationSDK.test(nil, nil)
-result, err = client.Email(nil).load(
-  { "id" => "test01" }, nil
-)
+client = EvaEmailVerificationSDK.test
+result, err = client.Email().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Email(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Email():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,14 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the EVA Email Verification
-
-- Upstream: [https://eva.pingutil.com/](https://eva.pingutil.com/)
-
-- No explicit licence published on the EVA homepage.
-- Provided free of charge by [LoginRadius](https://www.loginradius.com/) as a community tool.
-- No documented quotas or attribution requirements; use at your own risk.
 
 ---
 
