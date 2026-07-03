@@ -10,7 +10,7 @@ The Lua SDK for the EvaEmailVerification API — an entity-oriented client using
 
 ## Install
 ```bash
-luarocks install eva-email-verification-sdk
+luarocks install voxgig-sdk-eva-email-verification
 ```
 
 If the module is not yet published, add the source directory to

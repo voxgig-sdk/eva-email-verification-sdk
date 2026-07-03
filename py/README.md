@@ -10,7 +10,7 @@ The Python SDK for the EvaEmailVerification API — an entity-oriented client fo
 
 ## Install
 ```bash
-pip install eva-email-verification-sdk
+pip install voxgig-sdk-eva-email-verification
 ```
 
 Or install from source:

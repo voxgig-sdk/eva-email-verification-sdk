@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/eva-email-verification",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the EVA Email Verification public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "eva-email-verification"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/eva-email-verification-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/eva-email-verification-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/eva-email-verification-sdk/issues"
+  },
   "main": "dist/EvaEmailVerificationSDK.js",
   "type": "commonjs",
   "types": "dist/EvaEmailVerificationSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "EvaEmailVerification",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

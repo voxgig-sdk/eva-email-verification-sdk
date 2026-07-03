@@ -10,7 +10,7 @@ The PHP SDK for the EvaEmailVerification API — an entity-oriented client using
 
 ## Install
 ```bash
-composer require voxgig/eva-email-verification-sdk
+composer require voxgig-sdk/eva-email-verification
 ```
 
 

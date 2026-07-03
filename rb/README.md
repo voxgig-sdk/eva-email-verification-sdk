@@ -10,13 +10,13 @@ The Ruby SDK for the EvaEmailVerification API — an entity-oriented client usin
 
 ## Install
 ```bash
-gem install eva-email-verification-sdk
+gem install voxgig-sdk-eva-email-verification
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "eva-email-verification-sdk"
+gem "voxgig-sdk-eva-email-verification"
 ```
 
 Then run:

@@ -8,12 +8,14 @@ source = {
   dir = "eva-email-verification-sdk/lua"
 }
 description = {
-  summary = "EvaEmailVerification SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the EVA Email Verification public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/eva-email-verification-sdk",
+  issues_url = "https://github.com/voxgig-sdk/eva-email-verification-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "eva-email-verification" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The TypeScript SDK for the EvaEmailVerification API — a type-safe, entity-orie
 
 ## Install
 ```bash
-npm install eva-email-verification
+npm install @voxgig-sdk/eva-email-verification
 ```
 ## Tutorial: your first API call
 
