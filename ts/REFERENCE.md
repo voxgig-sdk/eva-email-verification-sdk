@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `EvaEmailVerificationSDK.test()`.
 ## EmailEntity
 
 ```ts
-const email = client.Email()
+const email = client.email
 ```
 
 ### Fields
@@ -133,7 +132,7 @@ const email = client.Email()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Email().load({ id: 'email_id' })
+const result = await client.email.load({ id: 'email_id' })
 ```
 
 ### Common Methods

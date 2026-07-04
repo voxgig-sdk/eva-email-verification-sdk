@@ -245,6 +245,9 @@ func (sdk *EvaEmailVerificationSDK) Direct(fetchargs map[string]any) (map[string
 }
 
 
+// Email returns a Email entity bound to this client.
+// Idiomatic usage: client.Email(nil).List(nil, nil) or
+// client.Email(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *EvaEmailVerificationSDK) Email(data map[string]any) EvaEmailVerificationEntity {
 	return NewEmailEntityFunc(sdk, data)
 }

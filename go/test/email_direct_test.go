@@ -105,14 +105,12 @@ func emailDirectSetup(mockres any) *emailDirectSetupResult {
 	env := envOverride(map[string]any{
 		"EVAEMAILVERIFICATION_TEST_EMAIL_ENTID": map[string]any{},
 		"EVAEMAILVERIFICATION_TEST_LIVE":    "FALSE",
-		"EVAEMAILVERIFICATION_APIKEY":       "NONE",
 	})
 
 	live := env["EVAEMAILVERIFICATION_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["EVAEMAILVERIFICATION_APIKEY"],
 		}
 		client := sdk.NewEvaEmailVerificationSDK(mergedOpts)
 

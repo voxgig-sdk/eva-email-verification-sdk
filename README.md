@@ -10,26 +10,24 @@ This is an unofficial SDK for the EVA Email Verification public API, generated b
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/eva-email-verification` | `npm install @voxgig-sdk/eva-email-verification` |
-| Python | `voxgig-sdk-eva-email-verification` | `pip install voxgig-sdk-eva-email-verification` |
-| PHP | `voxgig-sdk/eva-email-verification` | `composer require voxgig-sdk/eva-email-verification` |
-| Golang | `github.com/voxgig-sdk/eva-email-verification-sdk/go` | `go get github.com/voxgig-sdk/eva-email-verification-sdk/go` |
-| Ruby | `voxgig-sdk-eva-email-verification` | `gem install voxgig-sdk-eva-email-verification` |
-| Lua | `voxgig-sdk-eva-email-verification` | `luarocks install voxgig-sdk-eva-email-verification` |
+| TypeScript | `@voxgig-sdk/eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
+| Python | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
+| PHP | `voxgig-sdk/eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/eva-email-verification-sdk/go` | `go get github.com/voxgig-sdk/eva-email-verification-sdk/go@latest` |
+| Ruby | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
+| Lua | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { EvaEmailVerificationSDK } from 'eva-email-verification'
+import { EvaEmailVerificationSDK } from '@voxgig-sdk/eva-email-verification'
 
-const client = new EvaEmailVerificationSDK({
-  apikey: process.env.EVA-EMAIL-VERIFICATION_APIKEY,
-})
+const client = new EvaEmailVerificationSDK()
 
 // Load email data
-const email = await client.Email().load({})
+const email = await client.email.load({})
 console.log(email.data)
 ```
 
@@ -71,7 +69,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Email** |  | `/email` |
+| **Email** | The Email entity (load). | `/email` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -81,16 +79,13 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from evaemailverification_sdk import EvaEmailVerificationSDK
 
-client = EvaEmailVerificationSDK({
-    "apikey": os.environ.get("EVA-EMAIL-VERIFICATION_APIKEY"),
-})
+client = EvaEmailVerificationSDK()
 
 
 # Load a specific email
-email, err = client.Email().load({"id": "example_id"})
+email = client.email.load({"id": "example_id"})
 print(email)
 ```
 
@@ -100,13 +95,11 @@ print(email)
 <?php
 require_once 'evaemailverification_sdk.php';
 
-$client = new EvaEmailVerificationSDK([
-    "apikey" => getenv("EVA-EMAIL-VERIFICATION_APIKEY"),
-]);
+$client = new EvaEmailVerificationSDK();
 
 
 // Load a specific email
-[$email, $err] = $client->Email()->load(["id" => "example_id"]);
+$email = $client->email()->load(["id" => "example_id"]);
 print_r($email);
 ```
 
@@ -115,9 +108,7 @@ print_r($email);
 ```go
 import sdk "github.com/voxgig-sdk/eva-email-verification-sdk/go"
 
-client := sdk.NewEvaEmailVerificationSDK(map[string]any{
-    "apikey": os.Getenv("EVA-EMAIL-VERIFICATION_APIKEY"),
-})
+client := sdk.New()
 
 // Load email data
 email, err := client.Email(nil).Load(map[string]any{}, nil)
@@ -129,13 +120,11 @@ fmt.Println(email)
 ```ruby
 require_relative "EvaEmailVerification_sdk"
 
-client = EvaEmailVerificationSDK.new({
-  "apikey" => ENV["EVA-EMAIL-VERIFICATION_APIKEY"],
-})
+client = EvaEmailVerificationSDK.new
 
 
 # Load a specific email
-email, err = client.Email().load({ "id" => "example_id" })
+email = client.email.load({ "id" => "example_id" })
 puts email
 ```
 
@@ -144,13 +133,11 @@ puts email
 ```lua
 local sdk = require("eva-email-verification_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("EVA-EMAIL-VERIFICATION_APIKEY"),
-})
+local client = sdk.new()
 
 
 -- Load a specific email
-local email, err = client:Email():load({ id = "example_id" })
+local email, err = client:email():load({ id = "example_id" })
 print(email)
 ```
 
@@ -163,7 +150,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = EvaEmailVerificationSDK.test()
-const result = await client.Email().load({ id: 'test01' })
+const result = await client.email.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -171,14 +158,14 @@ const result = await client.Email().load({ id: 'test01' })
 
 ```python
 client = EvaEmailVerificationSDK.test()
-result, err = client.Email().load({"id": "test01"})
+result = client.email.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = EvaEmailVerificationSDK::test();
-[$result, $err] = $client->Email()->load(["id" => "test01"]);
+$result = $client->email()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -194,14 +181,14 @@ result, err := client.Email(nil).Load(
 
 ```ruby
 client = EvaEmailVerificationSDK.test
-result, err = client.Email().load({ "id" => "test01" })
+result = client.email.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Email():load({ id = "test01" })
+local result, err = client:email():load({ id = "test01" })
 ```
 
 ## How it works
@@ -254,7 +241,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -263,7 +250,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -281,7 +268,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

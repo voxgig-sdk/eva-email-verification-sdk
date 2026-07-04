@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## EmailEntity
 
 ```lua
-local email = client:Email(nil)
+local email = client:email(nil)
 ```
 
 ### Fields
@@ -107,7 +106,7 @@ local email = client:Email(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Email():load({ id = "email_id" })
+local result, err = client:email():load({ id = "email_id" })
 ```
 
 ### Common Methods
