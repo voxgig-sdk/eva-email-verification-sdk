@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## EmailEntity
 
 ```ruby
-email = client.email
+email = client.Email
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ email = client.email
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.email.load({ "id" => "email_id" })
+result = client.Email.load({ "id" => "email_id" })
 ```
 
 ### Common Methods

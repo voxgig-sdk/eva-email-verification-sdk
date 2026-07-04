@@ -33,10 +33,12 @@ client = EvaEmailVerificationSDK()
 
 ### 3. Load an email
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.email.load({"id": "example_id"})
-    print(result)
+    email = client.Email().load({"id": "example_id"})
+    print(email)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = EvaEmailVerificationSDK.test()
 
-result = client.email.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+email = client.Email().load({"id": "test01"})
+# email contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -161,7 +164,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Email` | `(data) -> EmailEntity` | Create a Email entity instance. |
+| `Email` | `(data) -> EmailEntity` | Create an Email entity instance. |
 
 ### Entity interface
 
@@ -225,7 +228,7 @@ API path: `/email`
 
 ### Email
 
-Create an instance: `const email = client.email`
+Create an instance: `email = client.Email()`
 
 #### Operations
 
@@ -248,8 +251,8 @@ Create an instance: `const email = client.email`
 
 #### Example: Load
 
-```ts
-const email = await client.email.load({ id: 'email_id' })
+```python
+email = client.Email().load({"id": "email_id"})
 ```
 
 
@@ -323,7 +326,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-email = client.email
+email = client.Email()
 email.load({"id": "example_id"})
 
 # email.data_get() now returns the loaded email data

@@ -114,7 +114,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body.email`",
+                  ["res"] = "`body`",
                 },
                 ["index$"] = 0,
               },

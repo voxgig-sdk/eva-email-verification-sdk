@@ -208,13 +208,7 @@ class EvaEmailVerificationSDK
   end
 
 
-  # Idiomatic facade: client.email.list / client.email.load({ "id" => ... })
-  def email
-    require_relative 'entity/email_entity'
-    @email ||= EmailEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.email instead.
+  # Canonical facade: client.Email.list / client.Email.load({ "id" => ... })
   def Email(data = nil)
     require_relative 'entity/email_entity'
     EmailEntity.new(self, data)

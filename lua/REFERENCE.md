@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## EmailEntity
 
 ```lua
-local email = client:email(nil)
+local email = client:Email(nil)
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ local email = client:email(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:email():load({ id = "email_id" })
+local result, err = client:Email():load({ id = "email_id" })
 ```
 
 ### Common Methods

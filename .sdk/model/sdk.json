@@ -110,7 +110,7 @@
                   },
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body.email`"
+                    "res": "`body`"
                   }
                 }
               ]

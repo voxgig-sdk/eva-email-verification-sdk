@@ -204,14 +204,7 @@ class EvaEmailVerificationSDK {
 
 
 
-  _email?: EmailEntity
-
-  // Idiomatic facade: `client.email.list()` / `client.email.load({ id })`.
-  get email(): EmailEntity {
-    return (this._email ??= new EmailEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.email` instead. */
+  // Entity access: `client.Email().list()` / `client.Email().load({ id })`.
   Email(data?: any) {
     const self = this
     return new EmailEntity(self,data)

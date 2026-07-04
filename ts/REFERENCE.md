@@ -109,7 +109,7 @@ Alias for `EvaEmailVerificationSDK.test()`.
 ## EmailEntity
 
 ```ts
-const email = client.email
+const email = client.Email()
 ```
 
 ### Fields
@@ -132,7 +132,7 @@ const email = client.email
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.email.load({ id: 'email_id' })
+const result = await client.Email().load({ id: 'email_id' })
 ```
 
 ### Common Methods

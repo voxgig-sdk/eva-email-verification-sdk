@@ -220,25 +220,15 @@ class EvaEmailVerificationSDK:
         }
 
 
-    @property
-    def email(self):
-        """Idiomatic facade: client.email.list() / client.email.load({"id": ...})."""
-        from entity.email_entity import EmailEntity
-        cached = getattr(self, "_email", None)
-        if cached is None:
-            cached = EmailEntity(self, None)
-            self._email = cached
-        return cached
-
-    def Email(self, data=None):
-        # Deprecated: use client.email instead.
+    def Email(self, data=None) -> "EmailEntity":
+        """Entity factory: client.Email().list({}) / client.Email().load({"id": ...})."""
         from entity.email_entity import EmailEntity
         return EmailEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "EvaEmailVerificationSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class EvaEmailVerificationSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.email_entity import EmailEntity

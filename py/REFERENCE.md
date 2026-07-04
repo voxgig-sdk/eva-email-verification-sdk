@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## EmailEntity
 
 ```python
-email = client.email
+email = client.Email()
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ email = client.email
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.email.load({"id": "email_id"})
+result = client.Email().load({"id": "email_id"})
 ```
 
 ### Common Methods

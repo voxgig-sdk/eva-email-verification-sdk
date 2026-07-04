@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:email():list() / client:email():load({ id = ... })
-function EvaEmailVerificationSDK:email(data)
+-- Idiomatic facade: client:Email():list() / client:Email():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function EvaEmailVerificationSDK:Email(data)
   local EntityMod = require("entity.email_entity")
   if data == nil then
     if self._email == nil then
@@ -253,12 +254,6 @@ function EvaEmailVerificationSDK:email(data)
     end
     return self._email
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:email() instead.
-function EvaEmailVerificationSDK:Email(data)
-  local EntityMod = require("entity.email_entity")
   return EntityMod.new(self, data)
 end
 
