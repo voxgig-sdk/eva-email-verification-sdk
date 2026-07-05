@@ -17,6 +17,14 @@
 ---@field status? string
 
 ---@class EmailLoadMatch
+---@field disposable? boolean
+---@field domain? string
+---@field email? string
+---@field free_provider? boolean
+---@field mx_record? boolean
+---@field role_account? boolean
+---@field smtp_check? boolean
+---@field status? string
 
 local M = {}
 

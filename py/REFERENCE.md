@@ -8,7 +8,7 @@ Complete API reference for the EvaEmailVerification Python SDK.
 ### Constructor
 
 ```python
-from eva-email-verification_sdk import EvaEmailVerificationSDK
+from evaemailverification_sdk import EvaEmailVerificationSDK
 
 client = EvaEmailVerificationSDK(options)
 ```
@@ -87,14 +87,14 @@ email = client.Email()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `disposable` | ``$BOOLEAN`` | No |  |
-| `domain` | ``$STRING`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `free_provider` | ``$BOOLEAN`` | No |  |
-| `mx_record` | ``$BOOLEAN`` | No |  |
-| `role_account` | ``$BOOLEAN`` | No |  |
-| `smtp_check` | ``$BOOLEAN`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `disposable` | `bool` | No |  |
+| `domain` | `str` | No |  |
+| `email` | `str` | No |  |
+| `free_provider` | `bool` | No |  |
+| `mx_record` | `bool` | No |  |
+| `role_account` | `bool` | No |  |
+| `smtp_check` | `bool` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -103,7 +103,7 @@ email = client.Email()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Email().load({"id": "email_id"})
+result = client.Email().load()
 ```
 
 ### Common Methods

@@ -8,7 +8,7 @@ Complete API reference for the EvaEmailVerification Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'eva-email-verification_sdk'
+require_relative 'EvaEmailVerification_sdk'
 
 client = EvaEmailVerificationSDK.new(options)
 ```
@@ -93,14 +93,14 @@ email = client.Email
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `disposable` | ``$BOOLEAN`` | No |  |
-| `domain` | ``$STRING`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `free_provider` | ``$BOOLEAN`` | No |  |
-| `mx_record` | ``$BOOLEAN`` | No |  |
-| `role_account` | ``$BOOLEAN`` | No |  |
-| `smtp_check` | ``$BOOLEAN`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `disposable` | `Boolean` | No |  |
+| `domain` | `String` | No |  |
+| `email` | `String` | No |  |
+| `free_provider` | `Boolean` | No |  |
+| `mx_record` | `Boolean` | No |  |
+| `role_account` | `Boolean` | No |  |
+| `smtp_check` | `Boolean` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -109,7 +109,7 @@ email = client.Email
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Email.load({ "id" => "email_id" })
+result = client.Email.load()
 ```
 
 ### Common Methods

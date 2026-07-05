@@ -16,5 +16,14 @@ export interface Email {
   status?: string
 }
 
-export type EmailLoadMatch = Partial<Email>
+export interface EmailLoadMatch {
+  disposable?: boolean
+  domain?: string
+  email?: string
+  free_provider?: boolean
+  mx_record?: boolean
+  role_account?: boolean
+  smtp_check?: boolean
+  status?: string
+}
 

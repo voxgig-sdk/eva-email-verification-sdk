@@ -90,14 +90,14 @@ local email = client:Email(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `disposable` | ``$BOOLEAN`` | No |  |
-| `domain` | ``$STRING`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `free_provider` | ``$BOOLEAN`` | No |  |
-| `mx_record` | ``$BOOLEAN`` | No |  |
-| `role_account` | ``$BOOLEAN`` | No |  |
-| `smtp_check` | ``$BOOLEAN`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `disposable` | `boolean` | No |  |
+| `domain` | `string` | No |  |
+| `email` | `string` | No |  |
+| `free_provider` | `boolean` | No |  |
+| `mx_record` | `boolean` | No |  |
+| `role_account` | `boolean` | No |  |
+| `smtp_check` | `boolean` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -106,7 +106,7 @@ local email = client:Email(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Email():load({ id = "email_id" })
+local result, err = client:Email():load()
 ```
 
 ### Common Methods

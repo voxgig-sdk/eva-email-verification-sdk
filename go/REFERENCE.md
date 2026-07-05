@@ -97,14 +97,14 @@ email := client.Email(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `disposable` | ``$BOOLEAN`` | No |  |
-| `domain` | ``$STRING`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `free_provider` | ``$BOOLEAN`` | No |  |
-| `mx_record` | ``$BOOLEAN`` | No |  |
-| `role_account` | ``$BOOLEAN`` | No |  |
-| `smtp_check` | ``$BOOLEAN`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `disposable` | `bool` | No |  |
+| `domain` | `string` | No |  |
+| `email` | `string` | No |  |
+| `free_provider` | `bool` | No |  |
+| `mx_record` | `bool` | No |  |
+| `role_account` | `bool` | No |  |
+| `smtp_check` | `bool` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -113,7 +113,7 @@ email := client.Email(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Email(nil).Load(map[string]any{"id": "email_id"}, nil)
+result, err := client.Email(nil).Load(nil, nil)
 ```
 
 ### Common Methods

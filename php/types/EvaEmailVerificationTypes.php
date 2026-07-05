@@ -25,7 +25,7 @@ class Email
     public ?string $status = null;
 }
 
-/** Match filter for Email#load (any subset of Email fields). */
+/** Request payload for Email#load. */
 class EmailLoadMatch
 {
     public ?bool $disposable = null;

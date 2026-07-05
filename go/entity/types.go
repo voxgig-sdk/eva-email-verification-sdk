@@ -20,8 +20,7 @@ type Email struct {
 	Status *string `json:"status,omitempty"`
 }
 
-// EmailLoadMatch mirrors the email fields as an all-optional match
-// filter (Go analog of Partial<Email>).
+// EmailLoadMatch is the typed request payload for Email.LoadTyped.
 type EmailLoadMatch struct {
 	Disposable *bool `json:"disposable,omitempty"`
 	Domain *string `json:"domain,omitempty"`

@@ -8,7 +8,7 @@ Complete API reference for the EvaEmailVerification PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/eva-email-verification_sdk.php';
+require_once __DIR__ . '/evaemailverification_sdk.php';
 
 $client = new EvaEmailVerificationSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = EvaEmailVerificationSDK::test();
 
 Create a new `EmailEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): EvaEmailVerificationUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,14 +92,14 @@ $email = $client->Email();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `disposable` | ``$BOOLEAN`` | No |  |
-| `domain` | ``$STRING`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `free_provider` | ``$BOOLEAN`` | No |  |
-| `mx_record` | ``$BOOLEAN`` | No |  |
-| `role_account` | ``$BOOLEAN`` | No |  |
-| `smtp_check` | ``$BOOLEAN`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `disposable` | `bool` | No |  |
+| `domain` | `string` | No |  |
+| `email` | `string` | No |  |
+| `free_provider` | `bool` | No |  |
+| `mx_record` | `bool` | No |  |
+| `role_account` | `bool` | No |  |
+| `smtp_check` | `bool` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -108,24 +108,24 @@ $email = $client->Email();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Email()->load(["id" => "email_id"]);
+$result = $client->Email()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -134,7 +134,7 @@ Set the entity match criteria.
 Create a new `EmailEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

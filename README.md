@@ -6,6 +6,21 @@ This is an unofficial SDK for the EVA Email Verification public API, generated b
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
+## Entities, not endpoints
+
+This SDK exposes the API as a small set of **semantic entities** — Email — that you
+call directly, instead of assembling URL paths and query strings. Entities are
+**Capitalised** to mark them as the primary surface, each with the operations they
+support (`load`):
+
+```ts
+const client = new EvaEmailVerificationSDK()
+const email = await client.Email().load()
+```
+
+Thinking in entities keeps the mental model small — for people and AI agents alike —
+rather than reasoning about raw HTTP routes and query parameters.
+
 ## Packages
 
 | Language | Package | Install |
@@ -71,8 +86,8 @@ The API exposes one entity:
 | --- | --- | --- |
 | **Email** | The Email entity (load). | `/email` |
 
-Each entity supports the following operations where available: **load**,
-**list**, **create**, **update**, and **remove**.
+The operations available across these entities are **load** — see each entity's
+own list above for exactly which it supports.
 
 ## Quickstart in other languages
 
@@ -85,7 +100,7 @@ client = EvaEmailVerificationSDK()
 
 
 # Load a specific email (returns the record, raises on error)
-email = client.Email().load({"id": "example_id"})
+email = client.Email().load()
 print(email)
 ```
 
@@ -99,7 +114,7 @@ $client = new EvaEmailVerificationSDK();
 
 
 // Load a specific email (returns the bare record; throws on error)
-$email = $client->Email()->load(["id" => "example_id"]);
+$email = $client->Email()->load();
 print_r($email);
 ```
 
@@ -124,7 +139,7 @@ client = EvaEmailVerificationSDK.new
 
 
 # Load a specific email (returns the bare record; raises on error)
-email = client.Email.load({ "id" => "example_id" })
+email = client.Email.load()
 puts email
 ```
 
@@ -137,7 +152,7 @@ local client = sdk.new()
 
 
 -- Load a specific email
-local email, err = client:Email():load({ id = "example_id" })
+local email, err = client:Email():load()
 print(email)
 ```
 
@@ -150,7 +165,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = EvaEmailVerificationSDK.test()
-const email = await client.Email().load({ id: 'test01' })
+const email = await client.Email().load()
 // email is a bare Email populated with mock data
 console.log(email)
 ```
@@ -159,7 +174,7 @@ console.log(email)
 
 ```python
 client = EvaEmailVerificationSDK.test()
-email = client.Email().load({"id": "test01"})
+email = client.Email().load()
 print(email)
 ```
 
@@ -168,9 +183,9 @@ print(email)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = EvaEmailVerificationSDK::test([
-    "entity" => ["email" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["email" => ["test01" => []]],
 ]);
-$email = $client->Email()->load(["id" => "test01"]);
+$email = $client->Email()->load();
 ```
 
 ### Golang
@@ -178,7 +193,7 @@ $email = $client->Email()->load(["id" => "test01"]);
 ```go
 client := sdk.Test()
 result, err := client.Email(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    nil, nil,
 )
 ```
 
@@ -187,41 +202,19 @@ result, err := client.Email(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = EvaEmailVerificationSDK.test({
-  "entity" => { "email" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "email" => { "test01" => {} } },
 })
-email = client.Email.load({ "id" => "test01" })
+email = client.Email.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Email():load({ id = "test01" })
+local result, err = client:Email():load()
 ```
 
-## How it works
-
-Every SDK call runs the same five-stage pipeline:
-
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), so features can inspect or modify the pipeline without
-forking the SDK.
-
-### Features
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-Pass custom features via the `extend` option at construction time.
-
-### Direct and Prepare
+## Direct and prepare
 
 For endpoints the entity model doesn't cover, use the low-level methods:
 
@@ -294,6 +287,31 @@ local result, err = client:direct({
   params = { id = "example" },
 })
 ```
+
+## Advanced
+
+> Everyday use only needs the sections above. This explains the internals
+> behind every call — relevant when writing custom features.
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
 
 ## Per-language documentation
 
