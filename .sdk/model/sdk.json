@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -252,14 +249,17 @@
           "url": "https://eva.pingutil.com/"
         },
         "description": "API for email verification. Validate and verify email addresses programmatically.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.eva.pingutil.com"
           }
         ],
+        "summary": "API for email verification.",
         "title": "EVA Email Verification",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://eva.pingutil.com"
       },
       "option": {},
       "target": {
@@ -312,6 +312,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -362,6 +365,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 email := client.Email(nil)
+fmt.Println(email.GetName()) // "email"
 ```
 
 ### Fields
@@ -114,6 +115,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Email(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

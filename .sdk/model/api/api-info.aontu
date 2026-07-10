@@ -15,9 +15,9 @@ main: {
           url: "https://api.eva.pingutil.com"
         }
       ]
+      summary: "API for email verification."
       title: "EVA Email Verification"
       version: "1.0.0"
+      website: "https://eva.pingutil.com"
     }
   }
-}
-
