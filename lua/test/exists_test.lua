@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- EvaEmailVerification SDK exists test
 
 local sdk = require("eva-email-verification_sdk")
 
