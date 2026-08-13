@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# EvaEmailVerification SDK exists test
 
 import pytest
 from evaemailverification_sdk import EvaEmailVerificationSDK

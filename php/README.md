@@ -35,7 +35,7 @@ $client = new EvaEmailVerificationSDK();
 
 ```php
 try {
-    // load() returns the bare Email record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Email record (throws on error).
     $email = $client->Email()->load();
     print_r($email);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = EvaEmailVerificationSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $email = $client->Email()->load();
 print_r($email);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -248,7 +249,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `domain` |  |
 | `email` |  |
 | `free_provider` |  |
-| `mx_record` |  |
+| `mx_records` |  |
 | `role_account` |  |
 | `smtp_check` |  |
 | `status` |  |
@@ -280,7 +281,7 @@ Create an instance: `$email = $client->Email();`
 | `domain` | `string` |  |
 | `email` | `string` |  |
 | `free_provider` | `bool` |  |
-| `mx_record` | `bool` |  |
+| `mx_records` | `bool` |  |
 | `role_account` | `bool` |  |
 | `smtp_check` | `bool` |  |
 | `status` | `string` |  |
@@ -288,7 +289,7 @@ Create an instance: `$email = $client->Email();`
 #### Example: Load
 
 ```php
-// load() returns the bare Email record (throws on error).
+// load() returns the ENTITY — call data_get() for the Email record (throws on error).
 $email = $client->Email()->load();
 ```
 

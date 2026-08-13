@@ -26,7 +26,7 @@ main: kit: entity: email: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "mx_record"
+      name: "mx_records"
       req: false
       type: "`$BOOLEAN`"
     }

@@ -16,11 +16,11 @@
 import pytest
 
 from evaemailverification_sdk import EvaEmailVerificationSDK
-from core.error import EvaEmailVerificationError
-from core.result import EvaEmailVerificationResult
-from core.response import EvaEmailVerificationResponse
-from core.spec import EvaEmailVerificationSpec
-from feature.base_feature import EvaEmailVerificationBaseFeature
+from evaemailverification_sdk.core.error import EvaEmailVerificationError
+from evaemailverification_sdk.core.result import EvaEmailVerificationResult
+from evaemailverification_sdk.core.response import EvaEmailVerificationResponse
+from evaemailverification_sdk.core.spec import EvaEmailVerificationSpec
+from evaemailverification_sdk.feature.base_feature import EvaEmailVerificationBaseFeature
 
 
 def _client():

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'EvaEmailVerification',
   }
 
 
@@ -84,7 +84,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "mx_record",
+          "name": "mx_records",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 4
@@ -132,6 +132,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/email",
               "parts": [

@@ -262,7 +262,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"domain"` |  |
 | `"email"` |  |
 | `"free_provider"` |  |
-| `"mx_record"` |  |
+| `"mx_records"` |  |
 | `"role_account"` |  |
 | `"smtp_check"` |  |
 | `"status"` |  |
@@ -294,7 +294,7 @@ Create an instance: `email := client.Email(nil)`
 | `domain` | `string` |  |
 | `email` | `string` |  |
 | `free_provider` | `bool` |  |
-| `mx_record` | `bool` |  |
+| `mx_records` | `bool` |  |
 | `role_account` | `bool` |  |
 | `smtp_check` | `bool` |  |
 | `status` | `string` |  |

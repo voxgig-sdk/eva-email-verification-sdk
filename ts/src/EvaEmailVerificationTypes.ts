@@ -10,7 +10,7 @@ export interface Email {
   domain?: string
   email?: string
   free_provider?: boolean
-  mx_record?: boolean
+  mx_records?: boolean
   role_account?: boolean
   smtp_check?: boolean
   status?: string
@@ -21,7 +21,7 @@ export interface EmailLoadMatch {
   domain?: string
   email?: string
   free_provider?: boolean
-  mx_record?: boolean
+  mx_records?: boolean
   role_account?: boolean
   smtp_check?: boolean
   status?: string

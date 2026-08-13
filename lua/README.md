@@ -229,7 +229,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `domain` |  |
 | `email` |  |
 | `free_provider` |  |
-| `mx_record` |  |
+| `mx_records` |  |
 | `role_account` |  |
 | `smtp_check` |  |
 | `status` |  |
@@ -261,7 +261,7 @@ Create an instance: `local email = client:Email(nil)`
 | `domain` | `string` |  |
 | `email` | `string` |  |
 | `free_provider` | `boolean` |  |
-| `mx_record` | `boolean` |  |
+| `mx_records` | `boolean` |  |
 | `role_account` | `boolean` |  |
 | `smtp_check` | `boolean` |  |
 | `status` | `string` |  |

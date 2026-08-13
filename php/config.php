@@ -60,7 +60,7 @@ class EvaEmailVerificationConfig
             ],
             [
               'active' => true,
-              'name' => 'mx_record',
+              'name' => 'mx_records',
               'req' => false,
               'type' => '`$BOOLEAN`',
               'index$' => 4,
@@ -108,6 +108,7 @@ class EvaEmailVerificationConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/email',
                   'parts' => [

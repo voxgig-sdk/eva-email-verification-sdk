@@ -19,7 +19,7 @@ class Email
     public ?string $domain = null;
     public ?string $email = null;
     public ?bool $free_provider = null;
-    public ?bool $mx_record = null;
+    public ?bool $mx_records = null;
     public ?bool $role_account = null;
     public ?bool $smtp_check = null;
     public ?string $status = null;
@@ -32,7 +32,7 @@ class EmailLoadMatch
     public ?string $domain = null;
     public ?string $email = null;
     public ?bool $free_provider = null;
-    public ?bool $mx_record = null;
+    public ?bool $mx_records = null;
     public ?bool $role_account = null;
     public ?bool $smtp_check = null;
     public ?string $status = null;

@@ -22,7 +22,7 @@
 # @!attribute [rw] free_provider
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] mx_record
+# @!attribute [rw] mx_records
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] role_account
@@ -38,7 +38,7 @@ Email = Struct.new(
   :domain,
   :email,
   :free_provider,
-  :mx_record,
+  :mx_records,
   :role_account,
   :smtp_check,
   :status,
@@ -59,7 +59,7 @@ Email = Struct.new(
 # @!attribute [rw] free_provider
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] mx_record
+# @!attribute [rw] mx_records
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] role_account
@@ -75,7 +75,7 @@ EmailLoadMatch = Struct.new(
   :domain,
   :email,
   :free_provider,
-  :mx_record,
+  :mx_records,
   :role_account,
   :smtp_check,
   :status,

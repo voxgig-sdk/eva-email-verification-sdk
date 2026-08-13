@@ -66,11 +66,11 @@ function email_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["EVAEMAILVERIFICATION_TEST_EMAIL_ENTID"] = {},
-    ["EVAEMAILVERIFICATION_TEST_LIVE"] = "FALSE",
+    ["EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID"] = {},
+    ["EVA_EMAIL_VERIFICATION_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["EVAEMAILVERIFICATION_TEST_LIVE"] == "TRUE"
+  local live = env["EVA_EMAIL_VERIFICATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

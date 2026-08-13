@@ -34,7 +34,7 @@ client = EvaEmailVerificationSDK.new
 
 ```ruby
 begin
-  # load returns the bare Email record (raises on error).
+  # load returns the ENTITY — call data_get for the Email record (raises on error).
   email = client.Email.load()
   puts email
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = EvaEmailVerificationSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 email = client.Email.load()
 puts email
 ```
@@ -238,7 +239,7 @@ returns a result `Hash` with these keys:
 | `domain` |  |
 | `email` |  |
 | `free_provider` |  |
-| `mx_record` |  |
+| `mx_records` |  |
 | `role_account` |  |
 | `smtp_check` |  |
 | `status` |  |
@@ -270,7 +271,7 @@ Create an instance: `email = client.Email`
 | `domain` | `String` |  |
 | `email` | `String` |  |
 | `free_provider` | `Boolean` |  |
-| `mx_record` | `Boolean` |  |
+| `mx_records` | `Boolean` |  |
 | `role_account` | `Boolean` |  |
 | `smtp_check` | `Boolean` |  |
 | `status` | `String` |  |
@@ -278,7 +279,7 @@ Create an instance: `email = client.Email`
 #### Example: Load
 
 ```ruby
-# load returns the bare Email record (raises on error).
+# load returns the ENTITY — call data_get for the Email record (raises on error).
 email = client.Email.load()
 ```
 

@@ -54,7 +54,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "mx_record",
+            ["name"] = "mx_records",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 4,
@@ -102,6 +102,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/email",
                 ["parts"] = {

@@ -71,11 +71,11 @@ function email_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "EVAEMAILVERIFICATION_TEST_EMAIL_ENTID" => [],
-        "EVAEMAILVERIFICATION_TEST_LIVE" => "FALSE",
+        "EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID" => [],
+        "EVA_EMAIL_VERIFICATION_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["EVAEMAILVERIFICATION_TEST_LIVE"] === "TRUE";
+    $live = $env["EVA_EMAIL_VERIFICATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

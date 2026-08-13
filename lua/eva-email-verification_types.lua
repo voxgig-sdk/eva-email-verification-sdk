@@ -11,7 +11,7 @@
 ---@field domain? string
 ---@field email? string
 ---@field free_provider? boolean
----@field mx_record? boolean
+---@field mx_records? boolean
 ---@field role_account? boolean
 ---@field smtp_check? boolean
 ---@field status? string
@@ -21,7 +21,7 @@
 ---@field domain? string
 ---@field email? string
 ---@field free_provider? boolean
----@field mx_record? boolean
+---@field mx_records? boolean
 ---@field role_account? boolean
 ---@field smtp_check? boolean
 ---@field status? string

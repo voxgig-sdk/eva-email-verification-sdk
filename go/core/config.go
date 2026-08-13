@@ -54,7 +54,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "mx_record",
+						"name": "mx_records",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 4,
@@ -102,6 +102,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/email",
 								"parts": []any{
@@ -119,7 +120,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

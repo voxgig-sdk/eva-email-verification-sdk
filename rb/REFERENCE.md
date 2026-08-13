@@ -97,7 +97,7 @@ email = client.Email
 | `domain` | `String` | No |  |
 | `email` | `String` | No |  |
 | `free_provider` | `Boolean` | No |  |
-| `mx_record` | `Boolean` | No |  |
+| `mx_records` | `Boolean` | No |  |
 | `role_account` | `Boolean` | No |  |
 | `smtp_check` | `Boolean` | No |  |
 | `status` | `String` | No |  |

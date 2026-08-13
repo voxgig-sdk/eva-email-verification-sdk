@@ -43,8 +43,8 @@ class EvaEmailVerificationTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('EVAEMAILVERIFICATION_TEST_LIVE');
-        $override = self::getenv('EVAEMAILVERIFICATION_TEST_OVERRIDE');
+        $live = self::getenv('EVA_EMAIL_VERIFICATION_TEST_LIVE');
+        $override = self::getenv('EVA_EMAIL_VERIFICATION_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class EvaEmailVerificationTestRunner
             }
         }
 
-        $explain = self::getenv('EVAEMAILVERIFICATION_TEST_EXPLAIN');
+        $explain = self::getenv('EVA_EMAIL_VERIFICATION_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['EVAEMAILVERIFICATION_TEST_EXPLAIN'] = $explain;
+            $m['EVA_EMAIL_VERIFICATION_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

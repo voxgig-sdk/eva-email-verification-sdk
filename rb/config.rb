@@ -55,7 +55,7 @@ module EvaEmailVerificationConfig
             },
             {
               "active" => true,
-              "name" => "mx_record",
+              "name" => "mx_records",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 4,
@@ -103,6 +103,7 @@ module EvaEmailVerificationConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/email",
                   "parts" => [

@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = EvaEmailVerificationSDK.test()
 
 const email = await client.Email().load()
-// email is a bare entity populated with mock response data
+// email is the entity, populated with mock response data
+// — call email.data() for the record itself
 console.log(email)
 ```
 
@@ -288,7 +289,7 @@ The `prepare()` method returns:
 | `domain` |  |
 | `email` |  |
 | `free_provider` |  |
-| `mx_record` |  |
+| `mx_records` |  |
 | `role_account` |  |
 | `smtp_check` |  |
 | `status` |  |
@@ -320,7 +321,7 @@ Create an instance: `const email = client.Email()`
 | `domain` | `string` |  |
 | `email` | `string` |  |
 | `free_provider` | `boolean` |  |
-| `mx_record` | `boolean` |  |
+| `mx_records` | `boolean` |  |
 | `role_account` | `boolean` |  |
 | `smtp_check` | `boolean` |  |
 | `status` | `string` |  |
