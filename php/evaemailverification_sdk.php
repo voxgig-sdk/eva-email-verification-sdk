@@ -40,7 +40,7 @@ class EvaEmailVerificationSDK
         $utility = new EvaEmailVerificationUtility();
         $this->_utility = $utility;
 
-        $config = EvaEmailVerificationConfig::make_config();
+        $config = EvaEmailVerificationConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

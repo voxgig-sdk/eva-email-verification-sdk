@@ -28,7 +28,7 @@ class EvaEmailVerificationSDK
     utility = EvaEmailVerificationUtility.new
     @_utility = utility
 
-    config = EvaEmailVerificationConfig.make_config
+    config = EvaEmailVerificationConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from evaemailverification_sdk.config import make_config
+from evaemailverification_sdk.config import shared_config
 from evaemailverification_sdk.features import _make_feature
 from evaemailverification_sdk.core.control import EvaEmailVerificationControl
 from evaemailverification_sdk.core.error import EvaEmailVerificationError
@@ -24,7 +24,7 @@ from evaemailverification_sdk.core.spec import EvaEmailVerificationSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
