@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,14 +285,14 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `disposable` |  |
-| `domain` |  |
-| `email` |  |
-| `free_provider` |  |
-| `mx_records` |  |
-| `role_account` |  |
-| `smtp_check` |  |
-| `status` |  |
+| `disposable` | Whether the email is from a disposable email provider |
+| `domain` | The domain part of the email address |
+| `email` | The email address that was verified |
+| `free_provider` | Whether the email is from a free email provider |
+| `mx_records` | Whether MX records exist for the domain |
+| `role_account` | Whether the email appears to be a role-based account |
+| `smtp_check` | Whether SMTP check was successful |
+| `status` | Verification status |
 
 Operations: load.
 
@@ -317,14 +317,14 @@ Create an instance: `const email = client.Email()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `disposable` | `boolean` |  |
-| `domain` | `string` |  |
-| `email` | `string` |  |
-| `free_provider` | `boolean` |  |
-| `mx_records` | `boolean` |  |
-| `role_account` | `boolean` |  |
-| `smtp_check` | `boolean` |  |
-| `status` | `string` |  |
+| `disposable` | `boolean` | Whether the email is from a disposable email provider |
+| `domain` | `string` | The domain part of the email address |
+| `email` | `string` | The email address that was verified |
+| `free_provider` | `boolean` | Whether the email is from a free email provider |
+| `mx_records` | `boolean` | Whether MX records exist for the domain |
+| `role_account` | `boolean` | Whether the email appears to be a role-based account |
+| `smtp_check` | `boolean` | Whether SMTP check was successful |
+| `status` | `string` | Verification status |
 
 #### Example: Load
 

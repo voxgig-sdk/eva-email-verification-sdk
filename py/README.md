@@ -241,14 +241,14 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `disposable` |  |
-| `domain` |  |
-| `email` |  |
-| `free_provider` |  |
-| `mx_records` |  |
-| `role_account` |  |
-| `smtp_check` |  |
-| `status` |  |
+| `disposable` | Whether the email is from a disposable email provider |
+| `domain` | The domain part of the email address |
+| `email` | The email address that was verified |
+| `free_provider` | Whether the email is from a free email provider |
+| `mx_records` | Whether MX records exist for the domain |
+| `role_account` | Whether the email appears to be a role-based account |
+| `smtp_check` | Whether SMTP check was successful |
+| `status` | Verification status |
 
 Operations: Load.
 
@@ -273,14 +273,14 @@ Create an instance: `email = client.Email()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `disposable` | `bool` |  |
-| `domain` | `str` |  |
-| `email` | `str` |  |
-| `free_provider` | `bool` |  |
-| `mx_records` | `bool` |  |
-| `role_account` | `bool` |  |
-| `smtp_check` | `bool` |  |
-| `status` | `str` |  |
+| `disposable` | `bool` | Whether the email is from a disposable email provider |
+| `domain` | `str` | The domain part of the email address |
+| `email` | `str` | The email address that was verified |
+| `free_provider` | `bool` | Whether the email is from a free email provider |
+| `mx_records` | `bool` | Whether MX records exist for the domain |
+| `role_account` | `bool` | Whether the email appears to be a role-based account |
+| `smtp_check` | `bool` | Whether SMTP check was successful |
+| `status` | `str` | Verification status |
 
 #### Example: Load
 

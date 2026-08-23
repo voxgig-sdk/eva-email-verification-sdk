@@ -225,14 +225,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `disposable` |  |
-| `domain` |  |
-| `email` |  |
-| `free_provider` |  |
-| `mx_records` |  |
-| `role_account` |  |
-| `smtp_check` |  |
-| `status` |  |
+| `disposable` | Whether the email is from a disposable email provider |
+| `domain` | The domain part of the email address |
+| `email` | The email address that was verified |
+| `free_provider` | Whether the email is from a free email provider |
+| `mx_records` | Whether MX records exist for the domain |
+| `role_account` | Whether the email appears to be a role-based account |
+| `smtp_check` | Whether SMTP check was successful |
+| `status` | Verification status |
 
 Operations: Load.
 
@@ -257,14 +257,14 @@ Create an instance: `local email = client:Email(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `disposable` | `boolean` |  |
-| `domain` | `string` |  |
-| `email` | `string` |  |
-| `free_provider` | `boolean` |  |
-| `mx_records` | `boolean` |  |
-| `role_account` | `boolean` |  |
-| `smtp_check` | `boolean` |  |
-| `status` | `string` |  |
+| `disposable` | `boolean` | Whether the email is from a disposable email provider |
+| `domain` | `string` | The domain part of the email address |
+| `email` | `string` | The email address that was verified |
+| `free_provider` | `boolean` | Whether the email is from a free email provider |
+| `mx_records` | `boolean` | Whether MX records exist for the domain |
+| `role_account` | `boolean` | Whether the email appears to be a role-based account |
+| `smtp_check` | `boolean` | Whether SMTP check was successful |
+| `status` | `string` | Verification status |
 
 #### Example: Load
 

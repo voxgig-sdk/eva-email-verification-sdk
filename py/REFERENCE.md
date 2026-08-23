@@ -87,14 +87,14 @@ email = client.Email()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `disposable` | `bool` | No |  |
-| `domain` | `str` | No |  |
-| `email` | `str` | No |  |
-| `free_provider` | `bool` | No |  |
-| `mx_records` | `bool` | No |  |
-| `role_account` | `bool` | No |  |
-| `smtp_check` | `bool` | No |  |
-| `status` | `str` | No |  |
+| `disposable` | `bool` | No | Whether the email is from a disposable email provider |
+| `domain` | `str` | No | The domain part of the email address |
+| `email` | `str` | No | The email address that was verified |
+| `free_provider` | `bool` | No | Whether the email is from a free email provider |
+| `mx_records` | `bool` | No | Whether MX records exist for the domain |
+| `role_account` | `bool` | No | Whether the email appears to be a role-based account |
+| `smtp_check` | `bool` | No | Whether SMTP check was successful |
+| `status` | `str` | No | Verification status |
 
 ### Operations
 

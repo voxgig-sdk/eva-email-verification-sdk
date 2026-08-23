@@ -8,41 +8,49 @@ main: kit: entity: email: {
     {
       name: "disposable"
       req: false
+      short: "Whether the email is from a disposable email provider"
       type: "`$BOOLEAN`"
     }
     {
       name: "domain"
       req: false
+      short: "The domain part of the email address"
       type: "`$STRING`"
     }
     {
       name: "email"
       req: false
+      short: "The email address that was verified"
       type: "`$STRING`"
     }
     {
       name: "free_provider"
       req: false
+      short: "Whether the email is from a free email provider"
       type: "`$BOOLEAN`"
     }
     {
       name: "mx_records"
       req: false
+      short: "Whether MX records exist for the domain"
       type: "`$BOOLEAN`"
     }
     {
       name: "role_account"
       req: false
+      short: "Whether the email appears to be a role-based account"
       type: "`$BOOLEAN`"
     }
     {
       name: "smtp_check"
       req: false
+      short: "Whether SMTP check was successful"
       type: "`$BOOLEAN`"
     }
     {
       name: "status"
       req: false
+      short: "Verification status"
       type: "`$STRING`"
     }
   ]

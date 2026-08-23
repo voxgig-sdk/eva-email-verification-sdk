@@ -235,14 +235,14 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `disposable` |  |
-| `domain` |  |
-| `email` |  |
-| `free_provider` |  |
-| `mx_records` |  |
-| `role_account` |  |
-| `smtp_check` |  |
-| `status` |  |
+| `disposable` | Whether the email is from a disposable email provider |
+| `domain` | The domain part of the email address |
+| `email` | The email address that was verified |
+| `free_provider` | Whether the email is from a free email provider |
+| `mx_records` | Whether MX records exist for the domain |
+| `role_account` | Whether the email appears to be a role-based account |
+| `smtp_check` | Whether SMTP check was successful |
+| `status` | Verification status |
 
 Operations: Load.
 
@@ -267,14 +267,14 @@ Create an instance: `email = client.Email`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `disposable` | `Boolean` |  |
-| `domain` | `String` |  |
-| `email` | `String` |  |
-| `free_provider` | `Boolean` |  |
-| `mx_records` | `Boolean` |  |
-| `role_account` | `Boolean` |  |
-| `smtp_check` | `Boolean` |  |
-| `status` | `String` |  |
+| `disposable` | `Boolean` | Whether the email is from a disposable email provider |
+| `domain` | `String` | The domain part of the email address |
+| `email` | `String` | The email address that was verified |
+| `free_provider` | `Boolean` | Whether the email is from a free email provider |
+| `mx_records` | `Boolean` | Whether MX records exist for the domain |
+| `role_account` | `Boolean` | Whether the email appears to be a role-based account |
+| `smtp_check` | `Boolean` | Whether SMTP check was successful |
+| `status` | `String` | Verification status |
 
 #### Example: Load
 

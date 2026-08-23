@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "EvaEmailVerification",
+      slug = "eva-email-verification",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -29,34 +32,42 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "disposable",
+            ["short"] = "Whether the email is from a disposable email provider",
             ["type"] = "`$BOOLEAN`",
           },
           {
             ["name"] = "domain",
+            ["short"] = "The domain part of the email address",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "email",
+            ["short"] = "The email address that was verified",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "free_provider",
+            ["short"] = "Whether the email is from a free email provider",
             ["type"] = "`$BOOLEAN`",
           },
           {
             ["name"] = "mx_records",
+            ["short"] = "Whether MX records exist for the domain",
             ["type"] = "`$BOOLEAN`",
           },
           {
             ["name"] = "role_account",
+            ["short"] = "Whether the email appears to be a role-based account",
             ["type"] = "`$BOOLEAN`",
           },
           {
             ["name"] = "smtp_check",
+            ["short"] = "Whether SMTP check was successful",
             ["type"] = "`$BOOLEAN`",
           },
           {
             ["name"] = "status",
+            ["short"] = "Verification status",
             ["type"] = "`$STRING`",
           },
         },

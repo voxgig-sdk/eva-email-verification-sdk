@@ -90,14 +90,14 @@ local email = client:Email(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `disposable` | `boolean` | No |  |
-| `domain` | `string` | No |  |
-| `email` | `string` | No |  |
-| `free_provider` | `boolean` | No |  |
-| `mx_records` | `boolean` | No |  |
-| `role_account` | `boolean` | No |  |
-| `smtp_check` | `boolean` | No |  |
-| `status` | `string` | No |  |
+| `disposable` | `boolean` | No | Whether the email is from a disposable email provider |
+| `domain` | `string` | No | The domain part of the email address |
+| `email` | `string` | No | The email address that was verified |
+| `free_provider` | `boolean` | No | Whether the email is from a free email provider |
+| `mx_records` | `boolean` | No | Whether MX records exist for the domain |
+| `role_account` | `boolean` | No | Whether the email appears to be a role-based account |
+| `smtp_check` | `boolean` | No | Whether SMTP check was successful |
+| `status` | `string` | No | Verification status |
 
 ### Operations
 
