@@ -27,12 +27,5 @@ class Email(TypedDict, total=False):
     status: str
 
 
-class EmailLoadMatch(TypedDict, total=False):
-    disposable: bool
-    domain: str
+class EmailLoadMatch(TypedDict):
     email: str
-    free_provider: bool
-    mx_records: bool
-    role_account: bool
-    smtp_check: bool
-    status: str

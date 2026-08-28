@@ -26,14 +26,7 @@ type Email struct {
 
 // EmailLoadMatch is the typed request payload for Email.LoadTyped.
 type EmailLoadMatch struct {
-	Disposable *bool `json:"disposable,omitempty"`
-	Domain *string `json:"domain,omitempty"`
-	Email *string `json:"email,omitempty"`
-	FreeProvider *bool `json:"free_provider,omitempty"`
-	MxRecords *bool `json:"mx_records,omitempty"`
-	RoleAccount *bool `json:"role_account,omitempty"`
-	SmtpCheck *bool `json:"smtp_check,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Email string `json:"email"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

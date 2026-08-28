@@ -28,13 +28,6 @@ class Email
 /** Request payload for Email#load. */
 class EmailLoadMatch
 {
-    public ?bool $disposable = null;
-    public ?string $domain = null;
-    public ?string $email = null;
-    public ?bool $free_provider = null;
-    public ?bool $mx_records = null;
-    public ?bool $role_account = null;
-    public ?bool $smtp_check = null;
-    public ?string $status = null;
+    public string $email;
 }
 

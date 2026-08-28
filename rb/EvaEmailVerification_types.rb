@@ -47,38 +47,10 @@ Email = Struct.new(
 
 # Request payload for Email#load.
 #
-# @!attribute [rw] disposable
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] domain
-#   @return [String, nil]
-#
 # @!attribute [rw] email
-#   @return [String, nil]
-#
-# @!attribute [rw] free_provider
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] mx_records
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] role_account
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] smtp_check
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
+#   @return [String]
 EmailLoadMatch = Struct.new(
-  :disposable,
-  :domain,
   :email,
-  :free_provider,
-  :mx_records,
-  :role_account,
-  :smtp_check,
-  :status,
   keyword_init: true
 )
 

@@ -42,7 +42,7 @@ client = EvaEmailVerificationSDK()
 
 ```python
 try:
-    email = client.Email().load()
+    email = client.Email().load({"email": "example_email"})
     print(email)
 except Exception as err:
     print(f"load failed: {err}")
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    email = client.Email().load()
+    email = client.Email().load({"email": "example"})
     print(email)
 except Exception as err:
     print(f"load failed: {err}")
@@ -124,7 +124,7 @@ client = EvaEmailVerificationSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-email = client.Email().load()
+email = client.Email().load({"email": "example"})
 # email contains the mock response record
 ```
 
@@ -285,8 +285,31 @@ Create an instance: `email = client.Email()`
 #### Example: Load
 
 ```python
-email = client.Email().load()
+email = client.Email().load({"email": "email"})
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -365,7 +388,7 @@ stores the returned data and match criteria internally.
 
 ```python
 email = client.Email()
-email.load()
+email.load({"email": "example"})
 
 # email.data_get() now returns the email data from the last load
 # email.match_get() returns the last match criteria
