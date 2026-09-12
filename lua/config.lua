@@ -42,6 +42,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "email",
             ["name"] = "email",
             ["short"] = "The email address that was verified",
             ["type"] = "`$STRING`",
@@ -94,8 +95,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/email",
-                ["parts"] = {
-                  "email",
+                ["segments"] = {
+                  {
+                    ["lit"] = "email",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -105,6 +108,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "email",
                 },
               },
             },

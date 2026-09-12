@@ -54,6 +54,7 @@ module EvaEmailVerificationConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "email",
               "name" => "email",
               "short" => "The email address that was verified",
               "type" => "`$STRING`",
@@ -106,8 +107,10 @@ module EvaEmailVerificationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/email",
-                  "parts" => [
-                    "email",
+                  "segments" => [
+                    {
+                      "lit" => "email",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -118,6 +121,9 @@ module EvaEmailVerificationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "email",
+                  ],
                 },
               ],
             },

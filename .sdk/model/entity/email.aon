@@ -18,6 +18,7 @@ main: kit: entity: email: {
       type: "`$STRING`"
     }
     {
+      format: "email"
       name: "email"
       req: false
       short: "The email address that was verified"
@@ -75,8 +76,10 @@ main: kit: entity: email: {
           }
           method: "GET"
           orig: "/email"
-          parts: [
-            "email"
+          segments: [
+            {
+              lit: "email"
+            }
           ]
           select: {
             exist: [

@@ -68,6 +68,7 @@ class EvaEmailVerificationConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'email',
               'name' => 'email',
               'short' => 'The email address that was verified',
               'type' => '`$STRING`',
@@ -120,8 +121,10 @@ class EvaEmailVerificationConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/email',
-                  'parts' => [
-                    'email',
+                  'segments' => [
+                    [
+                      'lit' => 'email',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -131,6 +134,9 @@ class EvaEmailVerificationConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'email',
                   ],
                 ],
               ],
