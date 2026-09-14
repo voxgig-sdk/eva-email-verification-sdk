@@ -105,7 +105,7 @@ local result, err = client:Email():load({ email = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
+| TypeScript | `@voxgig-sdk/eva-email-verification-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
 | Python | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
 | PHP | `voxgig-sdk/eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/eva-email-verification-sdk/go` | `go get github.com/voxgig-sdk/eva-email-verification-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Email():load({ email = "example" })
 ### TypeScript
 
 ```ts
-import { EvaEmailVerificationSDK } from '@voxgig-sdk/eva-email-verification'
+import { EvaEmailVerificationSDK } from '@voxgig-sdk/eva-email-verification-sdk'
 
 const client = new EvaEmailVerificationSDK()
 

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { EvaEmailVerificationSDK } from '@voxgig-sdk/eva-email-verification'
+import { EvaEmailVerificationSDK } from '@voxgig-sdk/eva-email-verification-sdk'
 
 const client = new EvaEmailVerificationSDK()
 ```
@@ -415,7 +415,7 @@ eva-email-verification/
 Import the SDK from the package root:
 
 ```ts
-import { EvaEmailVerificationSDK } from '@voxgig-sdk/eva-email-verification'
+import { EvaEmailVerificationSDK } from '@voxgig-sdk/eva-email-verification-sdk'
 ```
 
 ### Entity state
