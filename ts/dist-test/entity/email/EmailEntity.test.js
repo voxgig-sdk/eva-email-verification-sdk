@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.EVA_EMAIL_VERIFICATION_TEST_LIVE;
         for (const op of ['load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'email.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'email.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "disposable", "req": false, "short": "Whether the email is from a disposable email provider", "type": "`$BOOLEAN`", "index$": 0 }, { "active": true, "name": "domain", "req": false, "short": "The domain part of the email address", "type": "`$STRING`", "index$": 1 }, { "active": true, "format": "email", "name": "email", "req": false, "short": "The email address that was verified", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "free_provider", "req": false, "short": "Whether the email is from a free email provider", "type": "`$BOOLEAN`", "index$": 3 }, { "active": true, "name": "mx_records", "req": false, "short": "Whether MX records exist for the domain", "type": "`$BOOLEAN`", "index$": 4 }, { "active": true, "name": "role_account", "req": false, "short": "Whether the email appears to be a role-based account", "type": "`$BOOLEAN`", "index$": 5 }, { "active": true, "name": "smtp_check", "req": false, "short": "Whether SMTP check was successful", "type": "`$BOOLEAN`", "index$": 6 }, { "active": true, "name": "status", "req": false, "short": "Verification status", "type": "`$STRING`", "index$": 7 }], "name": "email", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": { "query": [{ "active": true, "example": "user@example.com", "kind": "query", "name": "email", "orig": "email", "reqd": true, "type": "`$STRING`", "index$": 0 }] }, "contract": { "id": "GET /email", "json": "{\"operationId\":\"verifyEmail\",\"parameters\":[{\"description\":\"The email address to verify\",\"in\":\"query\",\"name\":\"email\",\"required\":true,\"schema\":{\"example\":\"user@example.com\",\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"disposable\":{\"description\":\"Whether the email is from a disposable email provider\",\"example\":false,\"type\":\"boolean\"},\"domain\":{\"description\":\"The domain part of the email address\",\"example\":\"example.com\",\"type\":\"string\"},\"email\":{\"description\":\"The email address that was verified\",\"example\":\"user@example.com\",\"format\":\"email\",\"type\":\"string\"},\"free_provider\":{\"description\":\"Whether the email is from a free email provider\",\"example\":false,\"type\":\"boolean\"},\"mx_records\":{\"description\":\"Whether MX records exist for the domain\",\"example\":true,\"type\":\"boolean\"},\"role_account\":{\"description\":\"Whether the email appears to be a role-based account\",\"example\":false,\"type\":\"boolean\"},\"smtp_check\":{\"description\":\"Whether SMTP check was successful\",\"example\":true,\"type\":\"boolean\"},\"status\":{\"description\":\"Verification status\",\"enum\":[\"valid\",\"invalid\",\"unknown\"],\"example\":\"valid\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful email verification response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Invalid email parameter\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid email parameter\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Rate limit exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/email", "segments": [{ "lit": "email" }], "select": { "exist": ["email"] }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "email", "name__orig": "email", "Name": "Email", "name_": "email", "name-": "email", "NAME": "EMAIL", "index$": 0 }, { "active": true, "entity": "email", "key$": "BasicEmailFlow", "kind": "basic", "name": "BasicEmailFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "email_ref01", "srcdatavar": "email_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-email_ref01" } }], "index$": 0 }] }, 'Email');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -102,12 +100,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID': idmap,
         'EVA_EMAIL_VERIFICATION_TEST_LIVE': 'FALSE',
@@ -115,7 +107,13 @@ function basicSetup(extra) {
     });
     idmap = env['EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID'];
     const live = 'TRUE' === env.EVA_EMAIL_VERIFICATION_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['EVA_EMAIL_VERIFICATION_TEST_EMAIL_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.EvaEmailVerificationSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -126,7 +124,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -138,7 +137,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.EVA_EMAIL_VERIFICATION_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

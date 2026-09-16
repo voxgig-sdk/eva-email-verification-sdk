@@ -4,7 +4,10 @@ declare(strict_types=1);
 // EvaEmailVerification SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class EvaEmailVerificationFeatures
@@ -14,8 +17,14 @@ class EvaEmailVerificationFeatures
         switch ($name) {
             case "base":
                 return new EvaEmailVerificationBaseFeature();
+            case "ratelimit":
+                return new EvaEmailVerificationRatelimitFeature();
+            case "retry":
+                return new EvaEmailVerificationRetryFeature();
             case "test":
                 return new EvaEmailVerificationTestFeature();
+            case "timeout":
+                return new EvaEmailVerificationTimeoutFeature();
             default:
                 return new EvaEmailVerificationBaseFeature();
         }
@@ -31,7 +40,10 @@ class EvaEmailVerificationFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

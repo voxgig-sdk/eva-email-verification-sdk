@@ -74,6 +74,12 @@ main: kit: entity: email: {
               }
             ]
           }
+          contract: {
+            id: "GET /email"
+            json: "{\"operationId\":\"verifyEmail\",\"parameters\":[{\"description\":\"The email address to verify\",\"in\":\"query\",\"name\":\"email\",\"required\":true,\"schema\":{\"example\":\"user@example.com\",\"format\":\"email\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"disposable\":{\"description\":\"Whether the email is from a disposable email provider\",\"example\":false,\"type\":\"boolean\"},\"domain\":{\"description\":\"The domain part of the email address\",\"example\":\"example.com\",\"type\":\"string\"},\"email\":{\"description\":\"The email address that was verified\",\"example\":\"user@example.com\",\"format\":\"email\",\"type\":\"string\"},\"free_provider\":{\"description\":\"Whether the email is from a free email provider\",\"example\":false,\"type\":\"boolean\"},\"mx_records\":{\"description\":\"Whether MX records exist for the domain\",\"example\":true,\"type\":\"boolean\"},\"role_account\":{\"description\":\"Whether the email appears to be a role-based account\",\"example\":false,\"type\":\"boolean\"},\"smtp_check\":{\"description\":\"Whether SMTP check was successful\",\"example\":true,\"type\":\"boolean\"},\"status\":{\"description\":\"Verification status\",\"enum\":[\"valid\",\"invalid\",\"unknown\"],\"example\":\"valid\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful email verification response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Invalid email parameter\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid email parameter\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Rate limit exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/email"
           segments: [

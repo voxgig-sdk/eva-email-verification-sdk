@@ -1,12 +1,18 @@
 # EvaEmailVerification SDK feature factory
 
 from evaemailverification_sdk.feature.base_feature import EvaEmailVerificationBaseFeature
+from evaemailverification_sdk.feature.ratelimit_feature import EvaEmailVerificationRatelimitFeature
+from evaemailverification_sdk.feature.retry_feature import EvaEmailVerificationRetryFeature
 from evaemailverification_sdk.feature.test_feature import EvaEmailVerificationTestFeature
+from evaemailverification_sdk.feature.timeout_feature import EvaEmailVerificationTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: EvaEmailVerificationBaseFeature(),
+    "ratelimit": lambda: EvaEmailVerificationRatelimitFeature(),
+    "retry": lambda: EvaEmailVerificationRetryFeature(),
     "test": lambda: EvaEmailVerificationTestFeature(),
+    "timeout": lambda: EvaEmailVerificationTimeoutFeature(),
 }
 
 
