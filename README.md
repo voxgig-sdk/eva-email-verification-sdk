@@ -105,12 +105,12 @@ local result, err = client:Email():load({ email = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/eva-email-verification-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
-| Python | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
-| PHP | `voxgig-sdk/eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
+| TypeScript | `@voxgig-sdk/eva-email-verification-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/tags) |
+| Python | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/tags) |
+| PHP | `voxgig-sdk/eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/eva-email-verification-sdk/go` | `go get github.com/voxgig-sdk/eva-email-verification-sdk/go@latest` |
-| Ruby | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
-| Lua | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/releases) |
+| Ruby | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/tags) |
+| Lua | `voxgig-sdk-eva-email-verification` | publish pending — [install from git tag](https://github.com/voxgig-sdk/eva-email-verification-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/eva-email-verification-sdk/go-cli` | `go install github.com/voxgig-sdk/eva-email-verification-sdk/go-cli/cmd/eva-email-verification@latest` |
 | Go MCP server | `github.com/voxgig-sdk/eva-email-verification-sdk/go-mcp` | `go get github.com/voxgig-sdk/eva-email-verification-sdk/go-mcp@latest` |
 
